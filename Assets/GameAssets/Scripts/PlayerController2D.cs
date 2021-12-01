@@ -87,7 +87,7 @@ public class PlayerController2D : MonoBehaviour
             // Add a vertical force to the player.
             grounded = false;
             rigidbody2D.AddForce(new Vector2(0f, jumpForce));
-            renderer.flipX = facingRight;
+            //renderer.flipX = facingRight;
         }
 
         if (attack)
