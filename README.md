@@ -64,7 +64,7 @@ Mapa de Juego
 
 Muestra Gameplay Mapa:
 ![GifActividadMapasYFisicas](https://user-images.githubusercontent.com/92461845/144260361-9483387e-7c8f-4c65-9983-9f1debc54f30.gif)   
-</br>
+</br></br></br></br></br>
     
     
     
@@ -73,25 +73,64 @@ Muestra Gameplay Mapa:
     Lo que viene a continuación está pendiente de documentar:
 1. Crear una escena simple sobre la que probar diferentes configuraciones de objetos físicos en Unity. 
     
-1. Ninguno de los objetos será físico. 
-2. Un objeto tiene físicas y el otro no.
-3. Ambos objetos tienen físicas.
-4. Ambos objetos tienen físcas y uno de ellos tiene 10 veces más masa que el otro.
-5. Un objeto tiene físicas y el otro es IsTrigger.
-6. Ambos objetos son físicos y uno de ellos está marcado como IsTrigger.
-7. Uno de los objetos es cinemático.
-En el repositorio de las prácticas crear un documento Markdown en el que expliques los resultados obtenidos.
+• Ninguno de los objetos será físico. 
+
+Ninguno de los dos se desplazará y quedarán estáticos al no ser afectado por la gravedad.
+
+![GifLaboratorioFísicas1](https://user-images.githubusercontent.com/92461845/144283102-1f1e9036-3b59-42b1-8dac-22c383ab0eef.gif)
+
+• Un objeto tiene físicas y el otro no.
+
+En este caso, al añadir un Rigidbody 2D a la madera, está cae al verse afectada por la gravedad.
+
+![GifLaboratorioFísicas2](https://user-images.githubusercontent.com/92461845/144283474-549873e2-fe47-4888-be48-6f9d81dcfe8e.gif)
+
+• Ambos objetos tienen físicas.
+
+También veremos como cae la Luna (asteroide).
+
+![GifLaboratorioFísicas3](https://user-images.githubusercontent.com/92461845/144283830-0b3ee11a-8866-42d5-9829-3dc7f26de2b2.gif)
+
+• Ambos objetos tienen físcas y uno de ellos tiene 10 veces más masa que el otro.
+
+El nuevo objeto, más pesado, se modifica añadiendo 10 veces la masa inicial de 1 en la parte del Rigidbody.
+
+![imagen](https://user-images.githubusercontent.com/92461845/144284381-241e528b-96ac-4098-8365-c05e9071f5d9.png)
+
+Realmente, incluso dejandolos caer a mayor altura, no se aprecia una diferencia clara en la caida.
+
+![GifLaboratorioFísicas4](https://user-images.githubusercontent.com/92461845/144285395-1e9c10fd-969d-4bf7-baf7-1c68fe16d8b1.gif)
+
+• Un objeto tiene físicas y el otro es IsTrigger.
+
+Eliminamos el Rigidbody 2D de la madera y le añadimos un collider Trigger:
+
+![imagen](https://user-images.githubusercontent.com/92461845/144286106-7d1988aa-5e91-4ea5-adfc-d03ef7ef0e6f.png)
+
+Esta se mantendrá en el aire y no reacccionará a la colisión (aunque si la detectará):
+
+![GifLaboratorioFísicas5](https://user-images.githubusercontent.com/92461845/144286309-65af8e74-138e-4f9e-b7a0-8d959f188060.gif)
+
+• Ambos objetos son físicos y uno de ellos está marcado como IsTrigger.
+
+En este caso he cogido desde el punto anterior y he devuelto el Rigidbody a la madera. Para ver colisión, he aumentado la Gravity scale del peso y, además le he añadido un collider no Trigger, el de la madera se mantiene Trigger. El resultado será:
+
+![GifLaboratorioFísicas6](https://user-images.githubusercontent.com/92461845/144289528-99038b24-a9b8-45a4-ba27-1532aebfa71d.gif)
+
+• Uno de los objetos es cinemático.
 
 
+
+</br></br></br></br></br>
 2. Incluir scripts para cada uno de los tipos de objetos anteriores y prográmales eventos OnCollision y OnTrigger que muestren un mensaje con cada uno de los tipos de evento en consola. 
 
-
+</br></br></br></br></br>
 3. Incorpora elementos físicos en tu escena que respondan a las siguientes restricciones:
-1. Objeto estático que ejerce de barrera infranqueable. 
-2. Zona en la que los objetos que caen en ella son impulsados hacia adelante. 
-3. Objeto que es arrastrado por otro a una distancia fija. 
-4. Objeto que al colisionar con otros sigue un comportamiento totalmente físico.
-5. Incluye dos capas que asignes a diferentes tipos de objetos y que permita evitar colisiones entre ellos.
+• Objeto estático que ejerce de barrera infranqueable. 
+• Zona en la que los objetos que caen en ella son impulsados hacia adelante. 
+• Objeto que es arrastrado por otro a una distancia fija. 
+• Objeto que al colisionar con otros sigue un comportamiento totalmente físico.
+• Incluye dos capas que asignes a diferentes tipos de objetos y que permita evitar colisiones entre ellos.
 
 
 
