@@ -132,14 +132,29 @@ Teniendo en cuenta que ambos objetos tienen collider y ninguno en Trigger, el re
 
 En los primeros laboratorios no ha habido collisiones, por lo cual no se detecta ni Trigger ni Collision en ninguno.
 
+Añado tanto al peso como a la madera un script para detectar ambos eventos al entrar en ellos (Enter), con log identificativo en pantalla:
+
+![imagen](https://user-images.githubusercontent.com/92461845/144330826-47d5779f-52d7-4f68-b9cd-b98bacdad53a.png)
+
+Y ejecuto las pruebas en los supuestos con colisión:
+
 • Un objeto tiene físicas y el otro es IsTrigger.
 
-En este caso solo detecta el Trigger, no el Collision.
+Ambos detectan el Trigger pero ninguno la colisión física:
+
+![imagen](https://user-images.githubusercontent.com/92461845/144331148-dbbbedf4-31ae-44dc-9958-e4b2645f9bab.png)
 
 • Ambos objetos son físicos y uno de ellos está marcado como IsTrigger.
 
+Nuevamente ambos detectan el Trigger pero ninguno la colisión física:
+
+![imagen](https://user-images.githubusercontent.com/92461845/144331250-62fe493a-f3b4-42cc-b413-3a2e47f5f0b2.png)
 
 • Uno de los objetos es cinemático.
+
+Ambos detectan la colisión física:
+
+![imagen](https://user-images.githubusercontent.com/92461845/144330699-0c821fdc-1ee4-42c7-aac5-872a67f87df6.png)
 
 
 
