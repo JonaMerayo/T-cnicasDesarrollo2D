@@ -161,11 +161,18 @@ Ambos detectan la colisión física:
 
 </br></br></br></br></br>
 3. Incorpora elementos físicos en tu escena que respondan a las siguientes restricciones:
+
 • Objeto estático que ejerce de barrera infranqueable. 
+
 • Zona en la que los objetos que caen en ella son impulsados hacia adelante. 
+
 • Objeto que es arrastrado por otro a una distancia fija. 
+
 • Objeto que al colisionar con otros sigue un comportamiento totalmente físico.
+
 • Incluye dos capas que asignes a diferentes tipos de objetos y que permita evitar colisiones entre ellos.
+
+
 
 
 
