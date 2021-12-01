@@ -119,10 +119,30 @@ En este caso he cogido desde el punto anterior y he devuelto el Rigidbody a la m
 
 • Uno de los objetos es cinemático.
 
+En la misma madera, al marcar el objeto como Kinematic, se desmarcan las opciones del Collider:
 
+![imagen](https://user-images.githubusercontent.com/92461845/144290604-f62726da-402c-49cf-9ba2-982ee1cf8f13.png)
+
+Teniendo en cuenta que ambos objetos tienen collider y ninguno en Trigger, el resultado es:
+
+![GifLaboratorioFísicas7](https://user-images.githubusercontent.com/92461845/144291110-c11fce0b-87b5-4e28-8c19-caad6faf76a6.gif)
 
 </br></br></br></br></br>
 2. Incluir scripts para cada uno de los tipos de objetos anteriores y prográmales eventos OnCollision y OnTrigger que muestren un mensaje con cada uno de los tipos de evento en consola. 
+
+En los primeros laboratorios no ha habido collisiones, por lo cual no se detecta ni Trigger ni Collision en ninguno.
+
+• Un objeto tiene físicas y el otro es IsTrigger.
+
+En este caso solo detecta el Trigger, no el Collision.
+
+• Ambos objetos son físicos y uno de ellos está marcado como IsTrigger.
+
+
+• Uno de los objetos es cinemático.
+
+
+
 
 </br></br></br></br></br>
 3. Incorpora elementos físicos en tu escena que respondan a las siguientes restricciones:
