@@ -178,11 +178,31 @@ Para ello he añadido un sprite con un Collider marcado para ser usado por el Ef
 
 • Objeto que es arrastrado por otro a una distancia fija. 
 
+Añado nuestro arquero y le pongo un Distance Joint al que uno el Rigidbody del ya conocido asteroide:
 
+![imagen](https://user-images.githubusercontent.com/92461845/144488991-c12f4ff5-8f92-490b-af42-52c8cbe56a0a.png)
 
 • Objeto que al colisionar con otros sigue un comportamiento totalmente físico.
 
+Añado un sprite de caja, no estática, con Rigidbody2D y Collider2D al final de la plataforma de desplazamiento, este se verá afectado por las físicas:
+
+![imagen](https://user-images.githubusercontent.com/92461845/144489771-fb260cd1-293f-4ffb-aaa3-7d15f115fed3.png)
+
 • Incluye dos capas que asignes a diferentes tipos de objetos y que permita evitar colisiones entre ellos.
+
+He añadido una columna tras la caja, con Collider2D, para evitar la colisión cambio su Layer a "Untouchable" (nombre que le he puesto, valdría cualquiera):
+
+![imagen](https://user-images.githubusercontent.com/92461845/144492564-a04707d1-79f3-45c2-9aa5-d33792e72ff4.png)
+
+Después en Edit>Project Settings>Physics2D, en la parte inferior, hay que desmarcar en la matriz de colisiones, las colisiones entre esta nueva capa y el resto:
+
+![imagen](https://user-images.githubusercontent.com/92461845/144493628-6f702112-6144-4d37-8aa3-56d51635d3ff.png)
+
+El resultado conjunto quedaría así:
+
+![GifElementosFisicas](https://user-images.githubusercontent.com/92461845/144494602-722d3f61-7a93-4491-ba3d-686d422661ae.gif)
+
+
 
 
 
