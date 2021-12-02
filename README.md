@@ -164,9 +164,21 @@ Ambos detectan la colisión física:
 
 • Objeto estático que ejerce de barrera infranqueable. 
 
+Una barrera de madera vertical, estática y con collider (sin Rigidbody 2D):
+
+![imagen](https://user-images.githubusercontent.com/92461845/144480706-982d326c-ba28-4531-8b13-f139e478d34f.png)
+
+![imagen](https://user-images.githubusercontent.com/92461845/144480811-fe4c3ba9-d0fe-4e42-9cee-33663e751624.png)
+
 • Zona en la que los objetos que caen en ella son impulsados hacia adelante. 
 
+Para ello he añadido un sprite con un Collider marcado para ser usado por el Effector y el Effector en si mismo:
+
+![imagen](https://user-images.githubusercontent.com/92461845/144484604-79ee8ab7-1900-4126-9789-fff2d155b143.png)
+
 • Objeto que es arrastrado por otro a una distancia fija. 
+
+
 
 • Objeto que al colisionar con otros sigue un comportamiento totalmente físico.
 
