@@ -60,8 +60,19 @@ Escena base:
     
 • Añadir un objeto que genere una vibración en la cámara cuando A choca con él 
     
-    
-    
+   Primero añado una caja a la que le coloco un elemento "Cinemachine Collision Impulse Source" al que añado un Noise modificado por mi (explicado en último paso de la actividad), como se puede apreciar:
+   
+   ![imagen](https://user-images.githubusercontent.com/92461845/146239804-05357d9a-9a46-46f3-a978-cafa8dc74221.png)
+   
+  Una vez que hacemos que la caja emita el impulso al colisionar con el PlayerA (especificado en el "Impulse Channel"), deberemos añadir un listener en la cámara virtual elegida para que actue al recibir el impulso de la fuente (caja). Para ello añado la extensión "Cinemachine Impulse Listener" a dicha cámara:
+  
+  ![imagen](https://user-images.githubusercontent.com/92461845/146243287-62e76129-1ecf-4631-a0e6-545d3be41ca5.png)
+
+Comprobamos que se ejecuta la vibración al contacto con PlayerA:
+
+   ![GifImpulsoCamara](https://user-images.githubusercontent.com/92461845/146244010-133ce66f-fa1e-4f0f-9fc2-35c1ca25c7a0.gif)
+
+      
 • Seleccionar un conjunto de teclas que permitan hacer el cambio de la cámara de los personajes a la cámara que sigue al grupo. (Habilitar/Deshabilitar el gameobject de la cámara virtual) 
     
     
