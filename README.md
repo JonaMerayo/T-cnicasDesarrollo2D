@@ -1,4 +1,4 @@
-# TecnicasDesarrollo2D. 01- Mapas y físicas.
+# TecnicasDesarrollo2D. 02- Mapas y físicas.
 
 En esta actividad realizaremos pruebas con el motor de físicas 2D y el editor de mapas 2D que proporciona Unity. Los componentes de mayor interés son:
 
