@@ -2,43 +2,43 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerController2D : MonoBehaviour
+public class PlayerControllerB2D : MonoBehaviour
 {
-	[SerializeField] private float jumpForce = 300f;							// Amount of force added when the player jumps.
-	[SerializeField] private bool airControl = false;							// Whether or not a player can steer while jumping;	
-	public float runSpeed = 5.0f;
+    [SerializeField] private float jumpForce = 300f;                            // Amount of force added when the player jumps.
+    [SerializeField] private bool airControl = false;                           // Whether or not a player can steer while jumping;	
+    public float runSpeed = 5.0f;
 
     float horizontal;
     bool jump;
     bool attack;
-	private bool grounded = false;												// Whether or not the player is grounded.
-	private new Rigidbody2D rigidbody2D;
-	private bool facingRight = true;											// For determining which way the player is currently facing.
+    private bool grounded = false;                                              // Whether or not the player is grounded.
+    private new Rigidbody2D rigidbody2D;
+    private bool facingRight = true;											// For determining which way the player is currently facing.
     private GameObject[] floorObjects;
     private new SpriteRenderer renderer;
     private Animator animator;
 
 
     private void Start()
-	{
-		rigidbody2D = GetComponent<Rigidbody2D>();
+    {
+        rigidbody2D = GetComponent<Rigidbody2D>();
 
         floorObjects = GameObject.FindGameObjectsWithTag("Floor");
         renderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
     }
 
-	// Update is called once per frame
-	void Update()
-	{
+    // Update is called once per frame
+    void Update()
+    {
         //horizontal = Input.GetAxisRaw("Horizontal");
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             horizontal = -1;
         }
 
-        else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.RightArrow))
         {
             horizontal = 1;
         }
@@ -48,12 +48,12 @@ public class PlayerController2D : MonoBehaviour
             horizontal = 0;
         }
 
-        jump = Input.GetKey(KeyCode.Space); // Input.GetKeyDown("space");
-        attack = Input.GetKey(KeyCode.B);
+        jump = Input.GetKey(KeyCode.UpArrow); // Input.GetKeyDown("space");
+        attack = Input.GetKey(KeyCode.DownArrow);
     }
 
     private void FixedUpdate()
-	{		
+    {
         // The player is grounded if any Floor collider is touching his collider.
         if (floorObjects.Length > 0)
         {
@@ -64,8 +64,8 @@ public class PlayerController2D : MonoBehaviour
                     grounded = true;
                 }
             }
-        } 
-        
+        }
+
         Move();
     }
 
