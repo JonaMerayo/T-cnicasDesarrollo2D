@@ -38,7 +38,15 @@ Escena base:
 
 • Crear una zona de confinamiento de A que abarque toda la escena. 
     
-    
+  Primero, para crear los límites añadimos un EmptyObject con CompositeCollider2D de tipo polígono,	agregamos un Rigidbody Static y un BoxCollider2D que se ajuste a la zona de conﬁnamiento marcado (la he ampliado hasta los límites de visualización de la escena):   
+  
+  ![imagen](https://user-images.githubusercontent.com/92461845/146191737-ae14d057-fecc-43b3-af4c-fd0725146371.png)
+
+  En la VCamA añadiremos una extensión, en la parte inferior, llamada "Cinemachine confiner" y como elemento "Bounding Shape 2D" le añadiremos el Confiner creado en el paso anterior:
+  
+  ![imagen](https://user-images.githubusercontent.com/92461845/146193964-3b097599-f0ae-43b4-b822-744207e1d1ed.png)
+
+
     
 • Se debe crear una zona de confinamiento de la cámara B que abarque una parte de la escena. 
     
