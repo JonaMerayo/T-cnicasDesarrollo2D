@@ -107,11 +107,21 @@ Extra:
    ![imagen](https://user-images.githubusercontent.com/92461845/146260647-c3429311-460d-4684-b023-12f3eea13477.png)
 
     
-   Añadimos el "Cinemachine Impulse Listener " a la VCamB y a la VCamBoth:
-   
-   
-   
-   Y, finalmente, creamos la llamada al evento de impulso, al disparo, en el Script de control del PlayerB:
+   Tenemos añadidos los "Cinemachine Impulse Listener " a la VCamA, VCamB y a la VCamBoth. Y, finalmente, creamos la llamada al evento de impulso, al disparo, en el Script de control del PlayerB:
     
-    
+   ![imagen](https://user-images.githubusercontent.com/92461845/146267115-582f38a7-5ee6-475c-a4e1-24d238f7efc4.png)
+
+   ![imagen](https://user-images.githubusercontent.com/92461845/146267168-411badb1-ccb9-41b6-b4d4-69fb730e1fb9.png)
+   
+   Ahora al disparar ejecutará el impulso hacia la camara:
+   
+   ![GifImpulsoDisparo](https://user-images.githubusercontent.com/92461845/146267388-6f263e5f-6b07-4327-ae92-10431ab246bd.gif)
+
+
+<br /><br /><br /><br /><br />
+
+El conjunto final será así:
+
+![GifFinalReducido](https://user-images.githubusercontent.com/92461845/146268024-f230041b-46b8-49f8-ab53-0c00a8aa0bd7.gif)
+
    
