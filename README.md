@@ -47,10 +47,17 @@ Escena base:
   ![imagen](https://user-images.githubusercontent.com/92461845/146193964-3b097599-f0ae-43b4-b822-744207e1d1ed.png)
 
 
-    
 • Se debe crear una zona de confinamiento de la cámara B que abarque una parte de la escena. 
     
-    
+  Siguiendo los pasos anteriores creo el ConfinerB, reduciendo el tamaño del collider para que abarque una zona de escena menor:
+  
+  ![imagen](https://user-images.githubusercontent.com/92461845/146195426-bd27a36d-1806-4dcc-adb4-8499f9176749.png)
+
+   Y añado el mismo a VCamB:
+   
+   ![imagen](https://user-images.githubusercontent.com/92461845/146195722-fc53a3e1-d0ff-4fe8-8523-f6c49b61b45d.png)
+
+   
     
 • Añadir un objeto que genere una vibración en la cámara cuando A choca con él 
     
