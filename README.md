@@ -56,7 +56,6 @@ Escena base:
    Y añado el mismo a VCamB:
    
    ![imagen](https://user-images.githubusercontent.com/92461845/146195722-fc53a3e1-d0ff-4fe8-8523-f6c49b61b45d.png)
-
    
     
 • Añadir un objeto que genere una vibración en la cámara cuando A choca con él 
