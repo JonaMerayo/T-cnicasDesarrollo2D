@@ -17,6 +17,7 @@ public class PlayerController2D : MonoBehaviour
     private GameObject[] floorObjects;
     private new SpriteRenderer renderer;
     private Animator animator;
+    //private GameObject box;
 
 
     private void Start()
@@ -26,6 +27,7 @@ public class PlayerController2D : MonoBehaviour
         floorObjects = GameObject.FindGameObjectsWithTag("Floor");
         renderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        //box = GameObject.FindWithTag("BoxVibration");
     }
 
 	// Update is called once per frame
@@ -125,5 +127,13 @@ public class PlayerController2D : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
 
         //Do the action after the delay time has finished.
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("VibrationElement"))
+        {
+            
+        }
     }
 }
