@@ -1,211 +1,82 @@
-# TecnicasDesarrollo2D. 01- Mapas y físicas.
+# TecnicasDesarrollo2D. 03- Controlador de cámara.
 
-En esta actividad realizaremos pruebas con el motor de físicas 2D y el editor de mapas 2D que proporciona Unity. Los componentes de mayor interés son:
+Desarrollar una escena 2D en la que se incluyan dos personajes A, B que se controlan desde el teclado. Se deben contemplar los siguientes requisitos:
 
-    • Rigidbody: Acceso a las simulaciones físicas. 
+Escena base:
+
+![imagen](https://user-images.githubusercontent.com/92461845/146187809-c00cf590-1370-4adf-983b-7c20acccced6.png)
+
+
+• Cámara con seguimiento al personaje A. Se debe configurar el seguimiento hacia adelante. Esta cámara es la que debe tener la máxima prioridad. 
     
-    • Collider: Detección de las colisiones. 
+   Se ha creado una VCamA para seguir al personaje A, para ello se le ha puesto este personaje en Follow. Para configurar el seguimiento hacia adelante se ha modificado el Screen X a 0.2 (provocando un enfoque delantero sobre el personaje, se le ha dado prioridad 10.
+   
+   ![imagen](https://user-images.githubusercontent.com/92461845/146188485-c329e1e5-c44d-4f25-80d8-1a485267b96d.png)
+
     
-Uno de los objetivos primordiales de la práctica es comprender los distintos tipos de GameObject desde el punto de vista físico y las interacciones que les están permitidas:
-
-    • Dinámicos. 
+• Cámara con seguimiento al personaje B. Debe configurarse una zona de seguimiento del personaje B más amplia que la de A. 
     
-    • Cinemáticos. 
+   Se ha creado una VCamB para seguir al personaje B, para ello se le ha puesto este personaje en Follow. Para ampliar la zona de seguimiento he ampliado el campo "Field of view" a 80 (en VCamA estaba en 60).
+   
+   ![imagen](https://user-images.githubusercontent.com/92461845/146189739-ad2f5b98-0a7a-495a-8401-399e968af4eb.png)
+
     
-    • Estáticos. 
+• Cámara que hace el seguimiento de ambos personajes. 
     
-Es imprescindible comprender las interacciones posibles entre los distintos tipos de objetos desde el punto de vista del efecto que tienen las colisiones y los eventos que pueden disparar.
+   Se ha creado una VCamBoth  para seguir a ambos personajes, para ello, en Follow, hacemos click en engranaje y seleccionamos "Convert to target group":
+   
+   ![imagen](https://user-images.githubusercontent.com/92461845/146188982-4b6adfa8-0c9d-4387-8d7b-d318493cda5f.png)
 
-Respecto al mapa de juego, se debe trabajar con los objetos:
+   Se creará un elemento nuevo al que añadimos nuestros jugadores (más adelante he quitado a los jugadores como hijos de esté elemento dado que genera errores, solo añadirlos en el Inspector de elementos):
+   
+   ![imagen](https://user-images.githubusercontent.com/92461845/146202448-eb63b233-bd0f-4660-ba0f-414fcf031185.png)
 
-• Grid
+   Quedando como sigue:
+   
+   ![imagen](https://user-images.githubusercontent.com/92461845/146189423-8585a747-2742-48be-9165-e5a78357121d.png)
 
-![imagen](https://user-images.githubusercontent.com/92461845/144261360-df4ab90a-14e9-49cf-a5ea-5dcec6fee537.png)
 
-• Tilemap
+• Crear una zona de confinamiento de A que abarque toda la escena. 
+    
+  Primero, para crear los límites añadimos un EmptyObject con CompositeCollider2D de tipo polígono,	agregamos un Rigidbody Static y un BoxCollider2D que se ajuste a la zona de conﬁnamiento marcado (la he ampliado hasta los límites de visualización de la escena):   
+  
+  ![imagen](https://user-images.githubusercontent.com/92461845/146191737-ae14d057-fecc-43b3-af4c-fd0725146371.png)
 
-![imagen](https://user-images.githubusercontent.com/92461845/144261435-c13174a7-2b7b-4efc-b387-c2e1de82a222.png)
+  En la VCamA añadiremos una extensión, en la parte inferior, llamada "Cinemachine confiner" y como elemento "Bounding Shape 2D" le añadiremos el Confiner creado en el paso anterior:
+  
+  ![imagen](https://user-images.githubusercontent.com/92461845/146193964-3b097599-f0ae-43b4-b822-744207e1d1ed.png)
 
-• Tile Palette
 
-![imagen](https://user-images.githubusercontent.com/92461845/144261808-9549368d-aefe-43f9-8dae-c1781f75039c.png)
+• Se debe crear una zona de confinamiento de la cámara B que abarque una parte de la escena. 
+    
+  Siguiendo los pasos anteriores creo el ConfinerB, reduciendo el tamaño del collider para que abarque una zona de escena menor:
+  
+  ![imagen](https://user-images.githubusercontent.com/92461845/146195426-bd27a36d-1806-4dcc-adb4-8499f9176749.png)
 
-• Tile map collider
-
-![imagen](https://user-images.githubusercontent.com/92461845/144261977-78b796d2-763c-4df4-b4e4-c851f006bdce.png)
-
-• Composite collider
-
-En este caso he elegido la opción de map collider
+   Y añado el mismo a VCamB:
+   
+   ![imagen](https://user-images.githubusercontent.com/92461845/146195722-fc53a3e1-d0ff-4fe8-8523-f6c49b61b45d.png)
+   
+    
+• Añadir un objeto que genere una vibración en la cámara cuando A choca con él 
     
     
     
-<strong>Actividades a realizar:</strong>
-
-Partiendo de la escena implementada para la tarea de Sprites:
-
-Pensando en una adaptación 2D del juego, selecciona un Sprite que te sirva para representar el personaje. 
-
-Mapa de Juego
-
-1. Obtener assets que incorpores a tu proyecto para la generación de un mapa plano
-    ![Tiles_64x64](https://user-images.githubusercontent.com/92461845/144262435-e4a5f60e-b400-4859-8c18-b1d15c007118.png)
-
-2. Incorporar los recursos del punto 1 en el proyecto y generar al menos 2 paletas
-    Se han generado 3 paletas:
-    ![imagen](https://user-images.githubusercontent.com/92461845/144261834-b51852df-69e2-478e-91c7-5b55165228ef.png)
-
-3. Generar un mapa convencional, incluir obstáculos y paredes.
-    ![imagen](https://user-images.githubusercontent.com/92461845/144262191-0d04ae09-6462-4669-875e-c81ff2cbdd42.png)
-
- 
-</br>
-</br>
-
-Muestra Gameplay Mapa:
-![GifActividadMapasYFisicas](https://user-images.githubusercontent.com/92461845/144260361-9483387e-7c8f-4c65-9983-9f1debc54f30.gif)   
-</br></br></br></br></br>
+• Seleccionar un conjunto de teclas que permitan hacer el cambio de la cámara de los personajes a la cámara que sigue al grupo. (Habilitar/Deshabilitar el gameobject de la cámara virtual) 
     
     
     
     
     
-    Lo que viene a continuación está pendiente de documentar:
-1. Crear una escena simple sobre la que probar diferentes configuraciones de objetos físicos en Unity. 
+Extra:
+
+• Generar una vibración en la cámara cada vez que se pulse la tecla de disparo. Agregar un perfil de ruido a la cámara, y modificar las propiedades de amplitud y frecuencia al component Noise 
     
-• Ninguno de los objetos será físico. 
-
-Ninguno de los dos se desplazará y quedarán estáticos al no ser afectado por la gravedad.
-
-![GifLaboratorioFísicas1](https://user-images.githubusercontent.com/92461845/144283102-1f1e9036-3b59-42b1-8dac-22c383ab0eef.gif)
-
-• Un objeto tiene físicas y el otro no.
-
-En este caso, al añadir un Rigidbody 2D a la madera, está cae al verse afectada por la gravedad.
-
-![GifLaboratorioFísicas2](https://user-images.githubusercontent.com/92461845/144283474-549873e2-fe47-4888-be48-6f9d81dcfe8e.gif)
-
-• Ambos objetos tienen físicas.
-
-También veremos como cae la Luna (asteroide).
-
-![GifLaboratorioFísicas3](https://user-images.githubusercontent.com/92461845/144283830-0b3ee11a-8866-42d5-9829-3dc7f26de2b2.gif)
-
-• Ambos objetos tienen físcas y uno de ellos tiene 10 veces más masa que el otro.
-
-El nuevo objeto, más pesado, se modifica añadiendo 10 veces la masa inicial de 1 en la parte del Rigidbody.
-
-![imagen](https://user-images.githubusercontent.com/92461845/144284381-241e528b-96ac-4098-8365-c05e9071f5d9.png)
-
-Realmente, incluso dejandolos caer a mayor altura, no se aprecia una diferencia clara en la caida.
-
-![GifLaboratorioFísicas4](https://user-images.githubusercontent.com/92461845/144285395-1e9c10fd-969d-4bf7-baf7-1c68fe16d8b1.gif)
-
-• Un objeto tiene físicas y el otro es IsTrigger.
-
-Eliminamos el Rigidbody 2D de la madera y le añadimos un collider Trigger:
-
-![imagen](https://user-images.githubusercontent.com/92461845/144286106-7d1988aa-5e91-4ea5-adfc-d03ef7ef0e6f.png)
-
-Esta se mantendrá en el aire y no reacccionará a la colisión (aunque si la detectará):
-
-![GifLaboratorioFísicas5](https://user-images.githubusercontent.com/92461845/144286309-65af8e74-138e-4f9e-b7a0-8d959f188060.gif)
-
-• Ambos objetos son físicos y uno de ellos está marcado como IsTrigger.
-
-En este caso he cogido desde el punto anterior y he devuelto el Rigidbody a la madera. Para ver colisión, he aumentado la Gravity scale del peso y, además le he añadido un collider no Trigger, el de la madera se mantiene Trigger. El resultado será:
-
-![GifLaboratorioFísicas6](https://user-images.githubusercontent.com/92461845/144289528-99038b24-a9b8-45a4-ba27-1532aebfa71d.gif)
-
-• Uno de los objetos es cinemático.
-
-En la misma madera, al marcar el objeto como Kinematic, se desmarcan las opciones del Collider:
-
-![imagen](https://user-images.githubusercontent.com/92461845/144290604-f62726da-402c-49cf-9ba2-982ee1cf8f13.png)
-
-Teniendo en cuenta que ambos objetos tienen collider y ninguno en Trigger, el resultado es:
-
-![GifLaboratorioFísicas7](https://user-images.githubusercontent.com/92461845/144291110-c11fce0b-87b5-4e28-8c19-caad6faf76a6.gif)
-
-</br></br></br></br></br>
-2. Incluir scripts para cada uno de los tipos de objetos anteriores y prográmales eventos OnCollision y OnTrigger que muestren un mensaje con cada uno de los tipos de evento en consola. 
-
-En los primeros laboratorios no ha habido collisiones, por lo cual no se detecta ni Trigger ni Collision en ninguno.
-
-Añado tanto al peso como a la madera un script para detectar ambos eventos al entrar en ellos (Enter), con log identificativo en pantalla:
-
-![imagen](https://user-images.githubusercontent.com/92461845/144330826-47d5779f-52d7-4f68-b9cd-b98bacdad53a.png)
-
-Y ejecuto las pruebas en los supuestos con colisión:
-
-• Un objeto tiene físicas y el otro es IsTrigger.
-
-Ambos detectan el Trigger pero ninguno la colisión física:
-
-![imagen](https://user-images.githubusercontent.com/92461845/144331148-dbbbedf4-31ae-44dc-9958-e4b2645f9bab.png)
-
-• Ambos objetos son físicos y uno de ellos está marcado como IsTrigger.
-
-Nuevamente ambos detectan el Trigger pero ninguno la colisión física:
-
-![imagen](https://user-images.githubusercontent.com/92461845/144331250-62fe493a-f3b4-42cc-b413-3a2e47f5f0b2.png)
-
-• Uno de los objetos es cinemático.
-
-Ambos detectan la colisión física:
-
-![imagen](https://user-images.githubusercontent.com/92461845/144330699-0c821fdc-1ee4-42c7-aac5-872a67f87df6.png)
-
-
-
-
-</br></br></br></br></br>
-3. Incorpora elementos físicos en tu escena que respondan a las siguientes restricciones:
-
-• Objeto estático que ejerce de barrera infranqueable. 
-
-Una barrera de madera vertical, estática y con collider (sin Rigidbody 2D):
-
-![imagen](https://user-images.githubusercontent.com/92461845/144480706-982d326c-ba28-4531-8b13-f139e478d34f.png)
-
-![imagen](https://user-images.githubusercontent.com/92461845/144480811-fe4c3ba9-d0fe-4e42-9cee-33663e751624.png)
-
-• Zona en la que los objetos que caen en ella son impulsados hacia adelante. 
-
-Para ello he añadido un sprite con un Collider marcado para ser usado por el Effector y el Effector en si mismo:
-
-![imagen](https://user-images.githubusercontent.com/92461845/144484604-79ee8ab7-1900-4126-9789-fff2d155b143.png)
-
-• Objeto que es arrastrado por otro a una distancia fija. 
-
-Añado nuestro arquero y le pongo un Distance Joint al que uno el Rigidbody del ya conocido asteroide:
-
-![imagen](https://user-images.githubusercontent.com/92461845/144488991-c12f4ff5-8f92-490b-af42-52c8cbe56a0a.png)
-
-• Objeto que al colisionar con otros sigue un comportamiento totalmente físico.
-
-Añado un sprite de caja, no estática, con Rigidbody2D y Collider2D al final de la plataforma de desplazamiento, este se verá afectado por las físicas:
-
-![imagen](https://user-images.githubusercontent.com/92461845/144489771-fb260cd1-293f-4ffb-aaa3-7d15f115fed3.png)
-
-• Incluye dos capas que asignes a diferentes tipos de objetos y que permita evitar colisiones entre ellos.
-
-He añadido una columna tras la caja, con Collider2D, para evitar la colisión cambio su Layer a "Untouchable" (nombre que le he puesto, valdría cualquiera):
-
-![imagen](https://user-images.githubusercontent.com/92461845/144492564-a04707d1-79f3-45c2-9aa5-d33792e72ff4.png)
-
-Después en Edit>Project Settings>Physics2D, en la parte inferior, hay que desmarcar en la matriz de colisiones, las colisiones entre esta nueva capa y el resto:
-
-![imagen](https://user-images.githubusercontent.com/92461845/144493628-6f702112-6144-4d37-8aa3-56d51635d3ff.png)
-
-El resultado conjunto quedaría así:
-
-![GifElementosFisicas](https://user-images.githubusercontent.com/92461845/144494602-722d3f61-7a93-4491-ba3d-686d422661ae.gif)
-
-
-
-
-
-
-
-
+    
+    
+    
+    
+    
+    
+    
+   
