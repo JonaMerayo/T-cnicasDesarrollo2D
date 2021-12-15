@@ -27,9 +27,9 @@ Escena base:
    
    ![imagen](https://user-images.githubusercontent.com/92461845/146188982-4b6adfa8-0c9d-4387-8d7b-d318493cda5f.png)
 
-   Se creará un elemento nuevo al que añadimos nuestros jugadores:
+   Se creará un elemento nuevo al que añadimos nuestros jugadores (más adelante he quitado a los jugadores como hijos de esté elemento dado que genera errores, solo añadirlos en el Inspector de elementos):
    
-   ![imagen](https://user-images.githubusercontent.com/92461845/146189150-4b31ceb9-93ee-4e7c-9fb5-05966872e2eb.png)
+   ![imagen](https://user-images.githubusercontent.com/92461845/146202448-eb63b233-bd0f-4660-ba0f-414fcf031185.png)
 
    Quedando como sigue:
    
