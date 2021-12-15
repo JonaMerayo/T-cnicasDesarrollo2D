@@ -29,7 +29,7 @@ Escena base:
 
    Se creará un elemento nuevo al que añadimos nuestros jugadores (más adelante he quitado a los jugadores como hijos de esté elemento dado que genera errores, solo añadirlos en el Inspector de elementos):
    
-   ![imagen](https://user-images.githubusercontent.com/92461845/146202448-eb63b233-bd0f-4660-ba0f-414fcf031185.png)
+  ![imagen](https://user-images.githubusercontent.com/92461845/146202448-eb63b233-bd0f-4660-ba0f-414fcf031185.png)
 
    Quedando como sigue:
    
@@ -75,19 +75,43 @@ Comprobamos que se ejecuta la vibración al contacto con PlayerA:
       
 • Seleccionar un conjunto de teclas que permitan hacer el cambio de la cámara de los personajes a la cámara que sigue al grupo. (Habilitar/Deshabilitar el gameobject de la cámara virtual) 
     
-    
-    
+   Para esta parte he creado un EmptObject que he llamado GameManager y al que he adjuntado un script con el siguiente código:
+   
+   ![imagen](https://user-images.githubusercontent.com/92461845/146258654-c901f721-6422-4d69-9491-93958b143a10.png)
+
+   Después he añadido cada una de las cámaras en su parte correspondiente como variables cam1, cam2 y cam3 para poder activarlas con las correspondientes teclas numéricas indicadas en el código (del 1 al 3):
+
+![imagen](https://user-images.githubusercontent.com/92461845/146258878-880f64b2-afc0-4f02-b618-1b036313b1d0.png)
+
+Al ir pulsando alternativamente cada una de ellas y, teniendo en cuenta todo lo realizado hasta ahora, se puede cambiar entre las 3 diferentes vistas de cámara:
+
+![GifCambiosCámara](https://user-images.githubusercontent.com/92461845/146259392-0dcd0c68-3481-4876-bfbe-5787a5289a98.gif)
+
     
     
 Extra:
 
 • Generar una vibración en la cámara cada vez que se pulse la tecla de disparo. Agregar un perfil de ruido a la cámara, y modificar las propiedades de amplitud y frecuencia al component Noise 
     
+   Primeramente, para crear el Noise, seleccionamos Crear>Cinemachine>NoiseSettings (lo he llamado NoiseCamera):
+   
+   ![imagen](https://user-images.githubusercontent.com/92461845/146259809-8a28086e-3fcf-4365-8d53-a9e8154d6f4e.png)
+
+   
+   Después ajusto los parametros de amplitud y frecuencia de X e Y, he añadido varias ondas en cada uno, jugando con frecuencias y amplitudes y colocando algunas como random para darle más realismo. Los parametros definitivos han sido:
+   
+   ![imagen](https://user-images.githubusercontent.com/92461845/146260148-1c0a99a9-9f5f-4b38-ae70-dda14a877210.png)
+   
+   Después creamos un evento "Cinemachine Impulse Source" (ya que esta vez será evento y no colisión), en el PlayerB y le añadimos el NoiseCamera creado:
+
+   ![imagen](https://user-images.githubusercontent.com/92461845/146260647-c3429311-460d-4684-b023-12f3eea13477.png)
+
     
-    
-    
-    
-    
+   Añadimos el "Cinemachine Impulse Listener " a la VCamB y a la VCamBoth:
+   
+   
+   
+   Y, finalmente, creamos la llamada al evento de impulso, al disparo, en el Script de control del PlayerB:
     
     
    
