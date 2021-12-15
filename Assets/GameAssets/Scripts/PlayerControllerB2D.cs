@@ -17,6 +17,7 @@ public class PlayerControllerB2D : MonoBehaviour
     private GameObject[] floorObjects;
     private new SpriteRenderer renderer;
     private Animator animator;
+    private Cinemachine.CinemachineImpulseSource impulseSrc;
 
 
     private void Start()
@@ -26,7 +27,8 @@ public class PlayerControllerB2D : MonoBehaviour
         floorObjects = GameObject.FindGameObjectsWithTag("Floor");
         renderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
-    }
+        impulseSrc = GetComponent<Cinemachine.CinemachineImpulseSource>();
+}
 
     // Update is called once per frame
     void Update()
@@ -105,6 +107,14 @@ public class PlayerControllerB2D : MonoBehaviour
             rigidbody2D.AddForce(new Vector2(0f, jumpForce));
             //renderer.flipX = facingRight;
         }
+
+        if (attack)
+        {
+            animator.Play("AttackAnimation");
+            impulseSrc.GenerateImpulse();
+            //Debug.Log("attacking");            
+        }
+
     }
 
     private void Flip()

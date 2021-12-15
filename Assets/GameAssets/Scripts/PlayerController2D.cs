@@ -107,6 +107,12 @@ public class PlayerController2D : MonoBehaviour
             rigidbody2D.AddForce(new Vector2(0f, jumpForce));
             //renderer.flipX = facingRight;
         }
+
+        if (attack)
+        {
+            animator.Play("AttackAnimation");
+            //Debug.Log("attacking");
+        }
     }
 
     private void Flip()
