@@ -69,8 +69,7 @@ Muestra Gameplay Mapa:
     
     
     
-    
-    Lo que viene a continuación está pendiente de documentar:
+
 1. Crear una escena simple sobre la que probar diferentes configuraciones de objetos físicos en Unity. 
     
 • Ninguno de los objetos será físico. 
