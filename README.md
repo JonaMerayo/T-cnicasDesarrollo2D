@@ -1,13 +1,17 @@
 # TecnicasDesarrollo2D - Actividad 4 TÉCNICAS
 Actividades relativas al Tema de desarrollo 2D de la asignatura de Fundamentos
 
-Desarrollar ejemplos que implementen los siguientes casos: (se ha buscado la forma de implementar todos los ejemplos en uno)
+Desarrollar ejemplos que implementen los siguientes casos: 
 
    • Scroll con movimiento del fondo. El personaje salta sobre objetos que aparecen en la escena. 
    
-   Hemos aplicado este efecto a las nubes del fondo que se desplazarán de derecha a izda:
+   Para el scroll he creado una pequeña escena como ejemplo ("ExampleScrollFondo"), aplicando este efecto a las montañas del fondo que se desplazarán de derecha a izda, para dar efecto de movimiento. He subido al personaje a una plataforma inmovil para mejorar el realismo de la escena (si está en suelo no produce animación y se ve poco creíble):
+   
+   ![01 BackgroundScroll](https://user-images.githubusercontent.com/92461845/148610547-b8a33d9d-c40b-4fdc-9604-30da12d33295.gif)
+
    
    
+
    
    
     
