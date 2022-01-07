@@ -7,7 +7,8 @@ Desarrollar ejemplos que implementen los siguientes casos:
    
    Para el scroll he creado una pequeña escena como ejemplo ("ExampleScrollFondo"), aplicando este efecto a las montañas del fondo que se desplazarán de derecha a izda, para dar efecto de movimiento. He subido al personaje a una plataforma inmovil para mejorar el realismo de la escena (si está en suelo no produce animación y se ve poco creíble):
    
-   ![01 BackgroundScroll](https://user-images.githubusercontent.com/92461845/148610547-b8a33d9d-c40b-4fdc-9604-30da12d33295.gif)
+   ![01 BackgroundScroll](https://user-images.githubusercontent.com/92461845/148611379-f646407f-22a8-4a0c-b8aa-37ed4901598e.gif)
+
 
    
    
