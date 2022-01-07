@@ -39,8 +39,18 @@ Desarrollar ejemplos que implementen los siguientes casos:
    <br /><br />
     
    • Fondo con efecto parallax. El efecto empieza cuando el jugador empieza a moverse, esto se debe comunicar mediante eventos. 
-    
+   
+   El efecto parallax ya implementado y visto en el ejemplo anterior:
+   
+   ![04 BgMvtoPsjeMasRedu](https://user-images.githubusercontent.com/92461845/148617950-f34d6e1a-3367-4a56-a67c-d70ee21de879.gif)
+
+   Se ha implementado colocando los sprites en diferentes niveles de orden en capas y añadiendo, a través del script, distintas velocidades de movimiento basadas en el movimiento de nuestro personaje. Dando a los elementos más alejados una velocidad menor respecto al personaje, y a los más cercanos una velocidad mayor. La parte del script que lo controlará es:
+   
+   ![imagen](https://user-images.githubusercontent.com/92461845/148618187-8eff4d6c-b059-48de-b54b-ec5a6f28c1b6.png)
+
+   Donde podremos seleccionar el parallaxEffectMultiplier para cada elemento, para conseguir el efecto deseado (tener en cuenta que un 1 en esté parametro indicaría moverse a la misma velocidad que el personaje). 
+   
    • Utilizar la técnica de pool de objetos para ir creando elementos en el juego sobre los que debe saltar el jugador evitándolos o para adquirir puntos si salta sobre ellos. 
     
-Seguir el procedimiento habitual para las entregas: enlace a repositorio github con gif animado de ejecución y scripts. Fichero zip en el campus virtual con el repositorio comprimido.
+
 
