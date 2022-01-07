@@ -18,14 +18,25 @@ Desarrollar ejemplos que implementen los siguientes casos:
    
    <b>Para los objetos sobre los que salta el jugador: </b>
    
+   He añadido unas plataformas que se desplazan en el eje x de dcha a izda sobre las que puede saltar (a modo de ejemplo):
    
+   ![02 BackgroundScrollAndPlatforms2](https://user-images.githubusercontent.com/92461845/148616704-7bb451be-2246-42e7-86f5-0cb2a9b4f203.gif)
    
-   
-
-   
-   
+   <br /><br />
     
    • Scroll con movimiento del personaje. El fondo se repite hasta que pare el juego. 
+   
+   Cuando el jugador se mueve el fondo se repetirá hasta el infinito (desde aquí se ha añadido los ejemplos a la escena "PlayerParallaxScene"):
+   
+   ![04 BgMvtoPsjeMasRedu](https://user-images.githubusercontent.com/92461845/148617368-4a022207-70ff-48ac-8ddb-08e3413f954f.gif)
+   
+   Para ello estiramos el fondo (poniendo los Sprites en modo (Draw Mode: Tiled) en su componente Sprite Renderer). Después les aplicamos el script para su repetición infinita:
+   
+   ![imagen](https://user-images.githubusercontent.com/92461845/148617769-6c271d40-9503-46fe-85c3-3f7fc22f4edc.png)
+
+   En este caso, hemos puesto el Sky del cielo de fondo unido a la cámara y sin script, para que simlemente se desplace con esta, dado que es una parte del fondo con un solo color y sin elementos que puedan provocar incoherencias en el efecto deseado.
+   
+   <br /><br />
     
    • Fondo con efecto parallax. El efecto empieza cuando el jugador empieza a moverse, esto se debe comunicar mediante eventos. 
     
