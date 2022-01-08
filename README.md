@@ -90,7 +90,7 @@ Desarrollar ejemplos que implementen los siguientes casos:
    
    ![imagen](https://user-images.githubusercontent.com/92461845/148645051-16c5babb-a760-4ef0-a06b-f7d78abf4474.png)
 
-   Con esto usaremos y devolveremos los elementos precreados en el PoolManager, en lugar de instanciarlos y destruirlos una y otra vez, mejorando notablemente el rendimiento del juego:
+   Con esto usaremos y devolveremos los elementos precreados en el PoolManager, en lugar de instanciarlos y destruirlos una y otra vez, mejorando notablemente el rendimiento del juego. También vemos en el gif que al saltar y "destruir" al vampiro obtenemos 10 puntos (borde superior izdo).
 
    ![05 PoolAndVamps](https://user-images.githubusercontent.com/92461845/148645256-b1d2002c-2174-4581-a78c-cafe6a5bff9d.gif)
 
