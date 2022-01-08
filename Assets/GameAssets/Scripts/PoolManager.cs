@@ -9,7 +9,7 @@ public class PoolManager : MonoBehaviour
         get; private set;
     }
 
-    public GameObject instance;
+    public GameObject objToInstantiate;
     public int initialAmount = 1;
 
     private List<GameObject> pool = new List<GameObject>();
@@ -24,7 +24,7 @@ public class PoolManager : MonoBehaviour
     {
         for (int i = 0; i < initialAmount; i++)
         {
-            GameObject obj = Instantiate(instance);
+            GameObject obj = Instantiate(objToInstantiate);
             obj.SetActive(false);
 
             pool.Add(obj);
@@ -33,7 +33,7 @@ public class PoolManager : MonoBehaviour
     }
 
     /*
-        To instantiate (after adding it to any Game Object): PoolManager.Instance.Get().transform.position = anypositionchosen.position;
+        To instantiate (after adding it to any Game Object): PoolManager.Instance.GetNext().transform.position = anypositionchosen.position;
     */
     public GameObject GetNext()
     {
@@ -46,8 +46,10 @@ public class PoolManager : MonoBehaviour
         }
         else
         {
-            retgo = Instantiate(instance);
+            retgo = Instantiate(objToInstantiate);
         }
+
+        retgo.SetActive(true);
 
         return retgo;
     }

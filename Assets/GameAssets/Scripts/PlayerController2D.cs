@@ -39,16 +39,13 @@ public class PlayerController2D : MonoBehaviour
         jump = Input.GetKey(KeyCode.Space); // Input.GetKeyDown("space");
         attack = Input.GetKey(KeyCode.B);
 
+        //First movement activates the delegated method
         if ((!yetMoved) && (horizontal!=0 || jump || attack))
-        {
-            ////When first movement activate delegated method
-            //if (!yetMoved)
-            //{
+        {            
                 yetMoved = true;
 
                 if (OnFirstPlayerMove != null)
                     OnFirstPlayerMove(); //Activates delegated method
-            //}
         }
     }
 

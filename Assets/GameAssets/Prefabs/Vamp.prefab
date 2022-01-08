@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 8956525961656559109}
   - component: {fileID: 6622989809886740231}
   - component: {fileID: 2521148794409530922}
+  - component: {fileID: 7209701954341034574}
   - component: {fileID: 8683201771242775659}
   m_Layer: 0
   m_Name: Vamp
@@ -167,6 +168,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreValue: 10
+--- !u!114 &7209701954341034574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8247573703569111962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4dda1d639f803d4a8ce87cf2995f95c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 30
 --- !u!61 &8683201771242775659
 BoxCollider2D:
   m_ObjectHideFlags: 0

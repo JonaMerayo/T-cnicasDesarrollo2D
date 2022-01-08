@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-	public GameObject[] spawnList;
+	//public GameObject[] spawnList;
 	public Vector2 spawnRangeY;
 	public GameObject positionReference;
 	public int spawnsPerWave=1;
@@ -18,13 +18,13 @@ public class GameManager : MonoBehaviour
 	public Text gameOverText; 
 	public bool waitForPlayerStart;
 
-	private bool playerHasMoved;
 	private PlayerController2D playerCon;
 	private int score;
 	private bool gameOver;
 	private bool restart;
 	private bool gamePaused = false;
 
+	
 	void Start()
 	{
 		score = 0;
@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
 		}
 
 	}
-
+	
 	private void startToInanciate()
 	{
 		StartCoroutine(SpawnWaves());
@@ -107,12 +107,14 @@ public class GameManager : MonoBehaviour
 		{
 			for (int i = 0; i < spawnsPerWave; i++)
 			{
-				GameObject spawn = spawnList[Random.Range(0, spawnList.Length)];
+				//GameObject spawn = spawnList[Random.Range(0, spawnList.Length)];
 
 				Vector3 spawnPosition = new Vector3(positionReference.transform.position.x, Random.Range(spawnRangeY.x, spawnRangeY.y), 0);
-				Quaternion spawnRotation = Quaternion.identity;
 
-				Instantiate(spawn, spawnPosition, spawnRotation);
+				PoolManager.Instance.GetNext().transform.position = spawnPosition;
+				//Quaternion spawnRotation = Quaternion.identity;
+
+				//Instantiate(spawn, spawnPosition, spawnRotation);
 
 				yield return new WaitForSeconds(spawnWait);
 			}
@@ -127,7 +129,7 @@ public class GameManager : MonoBehaviour
 			}
 		}
 	}
-
+	
 	void UpdateScore()
 	{
 		if (scoreText != null)

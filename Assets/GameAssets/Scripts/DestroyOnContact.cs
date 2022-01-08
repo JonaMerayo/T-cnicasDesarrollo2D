@@ -50,10 +50,11 @@ public class DestroyOnContact : MonoBehaviour
             //{
                 gameManager.AddScore(scoreValue); // Only add to the score when not hitting the Player!
             }
-			Debug.Log("calling destroy");
-            //Destroy(other.gameObject); // Bolt or Player
-            Destroy(gameObject); // Myself
-        }
+			//Debug.Log("calling destroy");
+			//Destroy(other.gameObject); // Bolt or Player
+			//Destroy(gameObject); // Myself
+			PoolManager.Instance.ReturnToPool(gameObject);
+		}
 		
 	}
 
