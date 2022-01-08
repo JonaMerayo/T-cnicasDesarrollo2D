@@ -38,7 +38,7 @@ Desarrollar ejemplos que implementen los siguientes casos:
    
    <br /><br />
     
-   • Fondo con efecto parallax. El efecto empieza cuando el jugador empieza a moverse, esto se debe comunicar mediante eventos. 
+   • <b>Fondo con efecto parallax.</b> El efecto empieza cuando el jugador empieza a moverse, esto se debe comunicar mediante eventos. 
    
    El efecto parallax ya implementado y visto en el ejemplo anterior:
    
@@ -50,7 +50,48 @@ Desarrollar ejemplos que implementen los siguientes casos:
 
    Donde podremos seleccionar el parallaxEffectMultiplier para cada elemento, para conseguir el efecto deseado (tener en cuenta que un 1 en esté parametro indicaría moverse a la misma velocidad que el personaje). 
    
+   <br /><br />
+   
+   <b>Para iniciar el movimiento mediante eventos:</b>
+   
+   Se ha creado la función delegada en el script del player, que enviará una señal a los elementos suscritos en su primer movimiento (so controla que solo se envíe una vez, para optimización, con el booleano "yetMoved":
+   
+   ![imagen](https://user-images.githubusercontent.com/92461845/148644316-d5c3d58b-303e-40a8-a4e7-6d37186119be.png)
+
+   ![imagen](https://user-images.githubusercontent.com/92461845/148644383-b0e9b046-bb75-4489-a17d-e6f6878159e9.png)
+ 
+   
+   Después he añadido la opción de selección de si esperar o no al inicio del movimiento del jugador mediante código, con el parámetro público Booleano "waitForPlayerStart". Si este está activo el elemento se suscribirá al elemento delegado y no iniciará su movimiento hasta recibir la señal. Para eso en el evento Start() añadiremos:
+   
+   ![imagen](https://user-images.githubusercontent.com/92461845/148644504-e4f78ca7-1d94-45cc-bf91-322f941c7d6e.png)
+
+   
    • Utilizar la técnica de pool de objetos para ir creando elementos en el juego sobre los que debe saltar el jugador evitándolos o para adquirir puntos si salta sobre ellos. 
     
+   Por último, para ir Instanciando objetos sobre los que el jugador saltará, hemos añadido una Corrutina al GameManager (que también se puede suscribir al inicio de movimiento del jugador), está instanciará el GameObject elegido, en la posición indicada, a frecuencias según parametros, todo esto hecho público para poder ajustarlo en el editor:
+   
+   ![imagen](https://user-images.githubusercontent.com/92461845/148644643-1806e99a-03cd-4011-a214-c103af45f088.png)
+   
+   ![imagen](https://user-images.githubusercontent.com/92461845/148644674-b37a71a5-64b7-4cd4-b0fe-1d827371c67a.png)
+
+   Los objetos son, como se puede ver en el fragmento de código anterior, recogidos de un pool de objetos precreados llamado PoolManager:
+   
+   ![imagen](https://user-images.githubusercontent.com/92461845/148644730-c0bb20cf-1407-473b-b0ed-cf9b7c1c8ae5.png)
+   
+   En este caso, el objeto será un prefab de un sprite que será destruido (devuelto al pool) saltando sobre él o pasado un tiempo de vida definible también en nuestro editor. Este prefab será nuestro vampiro:
+   
+   ![imagen](https://user-images.githubusercontent.com/92461845/148644929-b7e93b10-e106-412d-bd1f-404d09f9bd27.png)
+
+   He creado una función para Entregar(GetNext) y otra para volver a Recoger(ReturnToPool) los elementos en el PoolManager (y una opción de instanciar alguno a mayores si se quedase sin ellos, cosa que habría que intentar evitar en pro del mejor rendimiento de nuestro juego):
+   
+   ![imagen](https://user-images.githubusercontent.com/92461845/148644820-3b46d172-18da-40bf-97f3-b33409cc0cdf.png)
+
+   Ya hemos visto como el GameManager usa el método GetNext(). Para devolver el elemento al pool una vez lo hemos "destruido", en los Scripts de Destroy del prefab he añadido la función:
+   
+   ![imagen](https://user-images.githubusercontent.com/92461845/148645051-16c5babb-a760-4ef0-a06b-f7d78abf4474.png)
+
+   Con esto usaremos y devolveremos los elementos precreados en el PoolManager, en lugar de instanciarlos y destruirlos una y otra vez, mejorando notablemente el rendimiento del juego:
+
+   ![05 PoolAndVamps](https://user-images.githubusercontent.com/92461845/148645256-b1d2002c-2174-4581-a78c-cafe6a5bff9d.gif)
 
 
